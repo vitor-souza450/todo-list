@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista de Tarefas</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/index.css" />
+    <!-- JavaScript -->
+    <script src="javascript/index.js" defer></script>
+  </head>
+  <body>
+    <!-- Page header -->
+    <header class="page-header">
+      <h1 class="main-title">Lista de Tarefas</h1>
+    </header>
+
+    <!-- Task addition section -->
+    <section class="page-section">
+      <h2 class="page-section-title">Adicione uma Tarefa</h2>
+      <form id="add-task-form" class="form" novalidate>
+        <input
+          type="text"
+          name="task-title"
+          id="task-title"
+          class="input"
+          placeholder="Defina um título para sua tarefa"
+          maxlength="30"
+          required
+        />
+        <textarea
+          name="task-description"
+          id="task-description"
+          class="input"
+          placeholder="O que você pretende fazer?"
+          maxlength="50"
+          required
+        ></textarea>
+        <button type="submit" class="button submit-button">Adicionar</button>
+      </form>
+    </section>
+
+    <!-- Task filtering section -->
+    <section class="page-section">
+      <h2 class="page-section-title">Filtre suas Tarefas</h2>
+      <form id="task-filter-form" class="form" novalidate>
+        <select name="task-filter" id="task-filter" class="input" required>
+          <option value="">Selecione uma opção</option>
+          <option value="1">Todas</option>
+          <option value="2">Pendentes</option>
+          <option value="3">Concluídas</option>
+        </select>
+        <button type="submit" class="button submit-button">Filtrar</button>
+      </form>
+    </section>
+
+    <!-- Main content -->
+    <main class="page-section">
+      <h2 class="page-section-title">Veja suas Tarefas</h2>
+      <p id="no-tasks-message" class="no-tasks-message">
+        Sem tarefas no momento.
+      </p>
+      <ul id="task-list" class="task-list hidden"></ul>
+    </main>
+
+    <!-- Template for a task item -->
+    <template id="task-item-template">
+      <li class="task-item">
+        <h3 class="task-text"></h3>
+        <p class="task-text"></p>
+        <div class="task-action-container">
+          <button
+            type="button"
+            class="button task-action-button task-state-toggle-button"
+          >
+            Concluir / Inconcluir
+          </button>
+          <button
+            type="button"
+            class="button task-action-button delete-task-button"
+          >
+            Deletar
+          </button>
+        </div>
+      </li>
+    </template>
+
+    <!-- Message modal -->
+    <div id="modal" class="modal hidden">
+      <section id="modal-content" class="modal-content hidden">
+        <header class="modal-header">
+          <h4 class="modal-title">Atenção:</h4>
+        </header>
+        <p id="modal-message" class="modal-message">Mensagem de teste.</p>
+        <footer class="modal-footer">
+          <button type="button" id="modal-close-button" class="button">
+            Fechar
+          </button>
+        </footer>
+      </section>
+    </div>
+
+    <!-- Page footer -->
+    <footer class="page-footer">
+      <p class="copyright">
+        Copyright &copy; <span id="current-year">2024</span>
+        <a
+          href="https://www.github.com/vitor-souza450"
+          target="_blank"
+          class="copyright-link"
+          >vitor-souza450</a
+        >.
+      </p>
+    </footer>
+  </body>
+</html>
